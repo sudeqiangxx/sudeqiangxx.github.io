@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>mqtt协议学习与使用 | Android 学习之道</title>
+    <title>Android 学习之道</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="小强">
     
 
     
-    <meta name="description" content="###一.先简单介绍一下mqtt协议###   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅">
+    <meta name="description" content="mqtt协议学习与使用一.先简单介绍一下mqtt协议
+   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mqtt协议学习与使用">
+<meta property="og:title" content="Android 学习之道">
 <meta property="og:url" content="http://yoursite.com/2017/03/15/mqtt协议学习与使用/index.html">
 <meta property="og:site_name" content="Android 学习之道">
-<meta property="og:description" content="###一.先简单介绍一下mqtt协议###   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅">
-<meta property="og:updated_time" content="2017-04-06T17:18:32.791Z">
+<meta property="og:description" content="mqtt协议学习与使用一.先简单介绍一下mqtt协议
+   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。m">
+<meta property="og:updated_time" content="2017-04-06T17:24:11.225Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mqtt协议学习与使用">
-<meta name="twitter:description" content="###一.先简单介绍一下mqtt协议###   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅">
+<meta name="twitter:title" content="Android 学习之道">
+<meta name="twitter:description" content="mqtt协议学习与使用一.先简单介绍一下mqtt协议
+   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。m">
 
     
     <link rel="alternative" href="/atom.xml" title="Android 学习之道" type="application/atom+xml">
@@ -82,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/15/mqtt协议学习与使用/" title="mqtt协议学习与使用" itemprop="url">mqtt协议学习与使用</a>
+      <a href="/2017/03/15/mqtt协议学习与使用/" title="" itemprop="url"></a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-15T10:50:51.000Z" itemprop="datePublished"> 发表于 2017-03-15</time>
+    <time datetime="2017-03-15T10:50:51.839Z" itemprop="datePublished"> 发表于 2017-03-15</time>
     
   </p>
 </header>
@@ -98,18 +101,20 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mqtt协议学习与使用"><span class="toc-number">1.</span> <span class="toc-text">mqtt协议学习与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-先简单介绍一下mqtt协议"><span class="toc-number">1.1.</span> <span class="toc-text">一.先简单介绍一下mqtt协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二-MQTT协议具有以下几个特点："><span class="toc-number">1.1.1.</span> <span class="toc-text">二.MQTT协议具有以下几个特点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、MQTT协议的消息格式"><span class="toc-number">1.2.</span> <span class="toc-text">三、MQTT协议的消息格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mqtt协议使用模式"><span class="toc-number">1.3.</span> <span class="toc-text">mqtt协议使用模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下一篇介绍怎么搭建mqtt代理服务器。"><span class="toc-number">2.1.</span> <span class="toc-text">下一篇介绍怎么搭建mqtt代理服务器。</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>###一.先简单介绍一下mqtt协议###<br>   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅使用在推送协议中，现在的物联网这么发达，好多工程的实现都是使用mqtt协议作为通信协议，知道mqtt的强大之处了吧。</p>
-<p>####二.MQTT协议具有以下几个特点：###<br>1.发布和订阅消息提供一对多的模式，具体就是：发布可以是一个终端，可以又多个终端订阅。也可以一个终端订阅多个发布终端。可以达到降低应用程序之间的耦合度。</p>
+		<h2 id="mqtt协议学习与使用"><a href="#mqtt协议学习与使用" class="headerlink" title="mqtt协议学习与使用"></a>mqtt协议学习与使用</h2><h3 id="一-先简单介绍一下mqtt协议"><a href="#一-先简单介绍一下mqtt协议" class="headerlink" title="一.先简单介绍一下mqtt协议"></a>一.先简单介绍一下mqtt协议</h3><hr>
+<p>   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅使用在推送协议中，现在的物联网这么发达，好多工程的实现都是使用mqtt协议作为通信协议，知道mqtt的强大之处了吧。</p>
+<h4 id="二-MQTT协议具有以下几个特点："><a href="#二-MQTT协议具有以下几个特点：" class="headerlink" title="二.MQTT协议具有以下几个特点："></a>二.MQTT协议具有以下几个特点：</h4><hr>
+<p>1.发布和订阅消息提供一对多的模式，具体就是：发布可以是一个终端，可以又多个终端订阅。也可以一个终端订阅多个发布终端。可以达到降低应用程序之间的耦合度。</p>
 <p>2.当消息内容又载体时，协议会进行屏蔽。</p>
 <p>3.使用TCP/IP提供网络连接。</p>
 <p>4.有三种消息发布质量，分别是：<br>（1）最多一次发布，以就是当消息发布完全是依赖于底层TCP/IP网络协议的，因为TCP/IP是可靠性传输的，当数据丢失了之后就会重传，所以这样的传输是可能会发生消息的重复。<br>（2）最少一次传输：这样的传输模式目的是能够确保消息能够到达，所以会出现多次传输，消息会出现重复。<br>（3）只有一次的发布：确保消息到达一次，这不能让消息重复，这种情况出现再计费系统中，不会出现重复的消息。这种模式不准消息丢失或者重复。</p>
 <p>5.小型传输，开销小，能够降低网络流量。</p>
 <p>6还有一特点就是使用Last will和Testament特性通知各客户端异常中断的机制。</p>
-<p>###三、MQTT协议的消息格式###</p>
+<h3 id="三、MQTT协议的消息格式"><a href="#三、MQTT协议的消息格式" class="headerlink" title="三、MQTT协议的消息格式"></a>三、MQTT协议的消息格式</h3><hr>
 <p> 首先MQTT的消息格式中的头部占2个字节，第一个字节中的7、6、5、位是表示消息类型的，故可以表示16种消息类型，下面是对16种消息类型的解释；</p>
 <p>Reserved       0（转化成二进制是0000）      表示是保留位</p>
 <p>CONNECT     1（转化成二进制是0001 ）        表示请求连接服务器</p>
@@ -130,10 +135,12 @@
 <p>flag标记位是第3位：第三位用0或者1来表示，1表示收到的消息已收到过，0表示没有收到过。</p>
 <p>QoS level 占2位，那么表示四种类型：<br>0（00）表示最多一次模式<br>1（01）表示最少一次模式<br>2（10）表示确保一次模式<br>3（11）保留，不代表任何意思</p>
 <p>最后一位表示保留位<br>最后一个字节是表示剩余消息的长度是多少。<br>且记录长度不能超过4个字节，那么能够存储256MB的长度。<br>在使用MQTT协议时，最需要考虑的是安全性问题，因为MQTT协议是运行再Tcp上的，那么可以使用TLS来进行加密。</p>
-<p>###mqtt协议使用模式 ###<br>MQTT采用代理的发布/订阅模式实现了发布者和订阅者的解耦(decouple)，因此，在MQTT协议中有三种角色：代理服务器、发布者客户端以及订阅者客户端，其中发布者和订阅者互不干扰，也就是说发布者和订阅者互不知道对方的存在，它们只知道代理服务器，代理服务器负责将来自发布者的消息进行存储处理并将这些消息发送到正确的订阅者中去。这种解耦体现在以下3个方面上：<br>·空间解耦：发布者和订阅者不必知道对方的存在，例如对方的IP地址或者端口；<br>·时间解耦：发布者和订阅者不必同时建立连接；<br>·同步解耦：发布者和订阅者在发布消息或接收消息的时候不需要同步。</p>
-<p>##结语##<br> 要想使用mqtt协议进行编程，我们得使用大公司封装好的协议进行编码，还得搭建代理服务器，使其各个客户端进行连接，能达到通信效果。</p>
-<p>###下一篇介绍怎么搭建mqtt代理服务器。###</p>
-  
+<h3 id="mqtt协议使用模式"><a href="#mqtt协议使用模式" class="headerlink" title="mqtt协议使用模式"></a>mqtt协议使用模式</h3><hr>
+<p>MQTT采用代理的发布/订阅模式实现了发布者和订阅者的解耦(decouple)，因此，在MQTT协议中有三种角色：代理服务器、发布者客户端以及订阅者客户端，其中发布者和订阅者互不干扰，也就是说发布者和订阅者互不知道对方的存在，它们只知道代理服务器，代理服务器负责将来自发布者的消息进行存储处理并将这些消息发送到正确的订阅者中去。这种解耦体现在以下3个方面上：<br>·空间解耦：发布者和订阅者不必知道对方的存在，例如对方的IP地址或者端口；<br>·时间解耦：发布者和订阅者不必同时建立连接；<br>·同步解耦：发布者和订阅者在发布消息或接收消息的时候不需要同步。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><hr>
+<p> 要想使用mqtt协议进行编程，我们得使用大公司封装好的协议进行编码，还得搭建代理服务器，使其各个客户端进行连接，能达到通信效果。</p>
+<hr>
+<h3 id="下一篇介绍怎么搭建mqtt代理服务器。"><a href="#下一篇介绍怎么搭建mqtt代理服务器。" class="headerlink" title="下一篇介绍怎么搭建mqtt代理服务器。"></a>下一篇介绍怎么搭建mqtt代理服务器。</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -145,7 +152,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2017/03/15/mqtt协议学习与使用/" data-title="mqtt协议学习与使用 | Android 学习之道" data-tsina="5841996534" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/03/15/mqtt协议学习与使用/" data-title="Android 学习之道" data-tsina="5841996534" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -185,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mqtt协议学习与使用"><span class="toc-number">1.</span> <span class="toc-text">mqtt协议学习与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-先简单介绍一下mqtt协议"><span class="toc-number">1.1.</span> <span class="toc-text">一.先简单介绍一下mqtt协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二-MQTT协议具有以下几个特点："><span class="toc-number">1.1.1.</span> <span class="toc-text">二.MQTT协议具有以下几个特点：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、MQTT协议的消息格式"><span class="toc-number">1.2.</span> <span class="toc-text">三、MQTT协议的消息格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mqtt协议使用模式"><span class="toc-number">1.3.</span> <span class="toc-text">mqtt协议使用模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下一篇介绍怎么搭建mqtt代理服务器。"><span class="toc-number">2.1.</span> <span class="toc-text">下一篇介绍怎么搭建mqtt代理服务器。</span></a></li></ol></li></ol>
  
   </div>
 
