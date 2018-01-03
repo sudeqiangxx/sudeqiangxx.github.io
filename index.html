@@ -182,7 +182,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/06/Android7.0机型适配/" title="IntentFilter的匹配规则" itemprop="url">IntentFilter的匹配规则</a>
+      <a href="/2017/04/06/Android7.0机型适配/" title="Android7.0机型适配" itemprop="url">Android7.0机型适配</a>
   </h1>
   <p class="article-author">By
        
@@ -195,7 +195,7 @@
 </header>
     <div class="article-content">
         
-        <p>###Android7.0机型适配存储目录的共享<br>都知道现在AI都很火，AI必定会诞生一些下一代巨头企业，各行各业都争抢这一股风，百度CEO不扔下了公司的内务不管，一头扎进了AI的研究团队工作中，前段时间李彦宏驾着自己公司生产的无人驾驶汽车，就是6，各个大巨头都在AI方面有重要项目在实施，都争抢着下一个时代的山头。在物联网方面，做的不错的是小米，小米的生态链，聚集了70多家智能硬件公司，形成了小米生态链，未来的小米将会在物联网将是一个大赢家，我们知道的小米路由器，小米手环，小米扫地机器人等都是这70多家公司中来生产和研发的，雷军太有远见了。好了，不闲说了，进入正题，记录一下我吗7.0版本对使用存储的要求。<img src="https://user-gold-cdn.xitu.io/2017/11/9/273e2014d8fa7673c6d438ebe50a592f?w=640&amp;h=426&amp;f=jpeg&amp;s=47213" alt=""><br><img src="https://user-gold-cdn.xitu.io/2017/11/9/ec8c02abbf21a89ed4daffd611b8e6d5?w=640&amp;h=457&amp;f=jpeg&amp;s=42366" alt=""></p>
+        <h3 id="Android7-0机型适配存储目录的共享"><a href="#Android7-0机型适配存储目录的共享" class="headerlink" title="Android7.0机型适配存储目录的共享"></a>Android7.0机型适配存储目录的共享</h3><p>都知道现在AI都很火，AI必定会诞生一些下一代巨头企业，各行各业都争抢这一股风，百度CEO不扔下了公司的内务不管，一头扎进了AI的研究团队工作中，前段时间李彦宏驾着自己公司生产的无人驾驶汽车，就是6，各个大巨头都在AI方面有重要项目在实施，都争抢着下一个时代的山头。在物联网方面，做的不错的是小米，小米的生态链，聚集了70多家智能硬件公司，形成了小米生态链，未来的小米将会在物联网将是一个大赢家，我们知道的小米路由器，小米手环，小米扫地机器人等都是这70多家公司中来生产和研发的，雷军太有远见了。好了，不闲说了，进入正题，记录一下我吗7.0版本对使用存储的要求。<img src="https://user-gold-cdn.xitu.io/2017/11/9/273e2014d8fa7673c6d438ebe50a592f?w=640&amp;h=426&amp;f=jpeg&amp;s=47213" alt=""><br><img src="https://user-gold-cdn.xitu.io/2017/11/9/ec8c02abbf21a89ed4daffd611b8e6d5?w=640&amp;h=457&amp;f=jpeg&amp;s=42366" alt=""></p>
 <pre><code>最近根据需求做了在线更新app问题，起初没有对7.0以上的机型进行
 适配，造成7.0手机无法跳转到app安装界面。
    说一下吧，android系统发展越来越好用，用户体验越来越好，对
@@ -204,8 +204,7 @@ goole就开始对app使用手机权限进行了一定的约束，对于6.0以上
 的权限申请我就不多说了，对于权限申请，自己写了一个框架，在项
 目中使用很方便。下面我们就说说7.0系统对存储使用增加
 了“FileProvider”,我们来看看使用方式，阅读一下官方文档。
-</code></pre><p>#####FileProvider介绍</p>
-<p><a>FileProvider is a special subclass of ContentProvider that facilitates secure sharing of files associated with an app by creating a content:// Uri for a file instead of a file:/// Uri.<br>A content URI allows you to grant read and write access using temporary access permissions. When<br>you create an Intent containing a contentURI, in<br>order to send the content URI to a client app, you     can also call Intent.setFlags() to add permissions. These permissions are available to the client app for as long as the stack for a receiving Activity is active. For an Intent going to a Service, the permissions are available as long as the Service is running.</a></p>
+</code></pre><h5 id="FileProvider介绍"><a href="#FileProvider介绍" class="headerlink" title="FileProvider介绍"></a>FileProvider介绍</h5><p><a>FileProvider is a special subclass of ContentProvider that facilitates secure sharing of files associated with an app by creating a content:// Uri for a file instead of a file:/// Uri.<br>A content URI allows you to grant read and write access using temporary access permissions. When<br>you create an Intent containing a contentURI, in<br>order to send the content URI to a client app, you     can also call Intent.setFlags() to add permissions. These permissions are available to the client app for as long as the stack for a receiving Activity is active. For an Intent going to a Service, the permissions are available as long as the Service is running.</a></p>
 <p>In comparison, to control access to a file:/// Uri you have to modify the file system permissions of the underlying file. The permissions you provide become available to any app, and remain in effect until you change them. This level of access is fundamentally insecure.</p>
 <p>The increased level of file access security offered by a content URI makes FileProvider a key part of Android’s security infrastructure.</p>
 <p>This overview of FileProvider includes the following topics:<a></a></p>
@@ -213,7 +212,7 @@ goole就开始对app使用手机权限进行了一定的约束，对于6.0以上
 <p>内容URI允许您使用临时访问权限授予读和写访问。当您创建包含内容URI的意图时，为了将内容URI发送到客户机应用程序，您还可以调用intent. setflags()来添加权限。只要接收活动的堆栈是活动的，客户机应用程序就可以使用这些权限。为了获得服务，只要服务运行，权限就可用。</p>
 <p>相比之下，为了控制对文件的file:/ / / Uri，您必须修改底层文件的文件系统权限。您提供的权限对任何应用程序都可用，并且一直有效，直到您更改它们为止。这种级别的访问基本上是不安全的。</p>
 <p>由内容URI提供的文件访问安全性的提高使得FileProvider成为Android安全基础设施的关键部分。<br> <a></a></p>
-<p>###使用方式<br>1.在程序清单文件中添加代码：</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>1.在程序清单文件中添加代码：</p>
 <pre><code>&lt;manifest&gt;
 ...
 &lt;application&gt;
