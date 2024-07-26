@@ -1,679 +1,411 @@
+<!DOCTYPE html>
+<html>
 
- <!DOCTYPE HTML>
-<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  
-    <title>Android 学习之道</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="小强">
-    
 
-    
-    <meta name="description" content="唯有不断摸索，不断刨根问底，才会有不一样的收获">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Android 学习之道">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Android 学习之道">
-<meta property="og:description" content="唯有不断摸索，不断刨根问底，才会有不一样的收获">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 学习之道">
-<meta name="twitter:description" content="唯有不断摸索，不断刨根问底，才会有不一样的收获">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-    
-    <link rel="alternative" href="/atom.xml" title="Android 学习之道" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/fav.png">
-    
-    
-    <link rel="apple-touch-icon" href="/img/mapzoneforandroid.png">
-    <link rel="apple-touch-icon-precomposed" href="/img/mapzoneforandroid.png">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/androidthere.png" alt="Android 学习之道" title="Android 学习之道"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Android 学习之道">Android 学习之道</a></h1>
-				<h2 class="blog-motto">生命不息，奋斗不止</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于我</a></li>
-					
-						<li><a href="/categories">分类</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
+<body>
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/06/11/mqtt代理服务器搭建/" title="mqtt代理服务器搭建" itemprop="url">mqtt代理服务器搭建</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
-		
-  <p class="article-time">
-    <time datetime="2017-06-11T04:01:07.000Z" itemprop="datePublished"> 发表于 2017-06-11</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+<p>Slot Machine Game Privacy Policy
+1. Introduction</p>
 
+<p>This Privacy Policy (hereinafter referred to as the &quot;Policy&quot;) explains how the Slot Machine Game (hereinafter referred to as the &quot;Game&quot; or &quot;we&quot;) collects, uses, and discloses your personal information. We are committed to protecting your privacy and ensuring that your personal information is handled properly.</p>
 
-</div>
+<ol>
+<li>Personal Information We Collect</li>
+</ol>
 
+<p>We collect the following types of personal information when you use our Game:</p>
 
+<p>Identity information: Your name, username, avatar, nickname, etc.
+Contact information: Your email address, phone number, etc.
+Device information: Your device type, operating system version, IP address, device identifier, etc.
+Game information: Your game records, game coin count, game progress, etc.
+Third-party account information: If you log in to the Game using a third-party account, we will collect your third-party account information, such as your social media account information.
+3. Use of Personal Information</p>
 
+<p>We will use the personal information we collect for the following purposes:</p>
 
-<div class="comments-count">
-	
-</div>
+<p>To provide game services: We use your personal information to provide game services, such as matching players, settling game results, and distributing game rewards.
+To improve the gaming experience: We use your personal information to analyze your gaming behavior, improve the gaming experience, and provide personalized game recommendations.
+To maintain game security: We use your personal information to maintain game security and prevent fraud and abuse.
+To send marketing information: With your consent, we will use your personal information to send you marketing information, such as game events and promotions.
+4. Disclosure of Personal Information</p>
 
-</footer>
+<p>We will not sell or rent your personal information to third parties. However, we may disclose your personal information in the following circumstances:</p>
 
+<p>With your consent: We will disclose your personal information to third parties upon your express consent.
+Court orders: We will disclose your personal information to judicial authorities or other government agencies in order to comply with the law or court orders.
+Partners: We may disclose your personal information to our partners so that they can provide you with better services. Our partners will comply with this Policy to protect your personal information.
+5. Storage and Protection of Personal Information</p>
 
-    </article>
+<p>We will take appropriate technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, alteration, or loss. We will regularly review your personal information for security and update our security measures as needed.</p>
 
+<ol>
+<li>Your Rights</li>
+</ol>
 
+<p>You have the following rights:</p>
 
+<p>Right of access: You have the right to access the personal information we collect about you.
+Right to rectification: You have the right to request that we correct any inaccurate personal information we hold about you.
+Right to erasure: In certain circumstances, you have the right to request that we erase your personal information.
+Right to restrict processing: In certain circumstances, you have the right to request that we restrict the processing of your personal information.
+Right to object: You have the right to object to our processing of your personal information for certain purposes.
+If you wish to exercise your rights, please contact us at [email protected]</p>
 
+<ol>
+<li>Minors</li>
+</ol>
 
+<p>We do not knowingly collect or process personal information from minors. If you are a minor, please do not use our Game without the consent of your guardian.</p>
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/16/程序员离开北上广的日子/" title="程序员离开北上广的日子" itemprop="url">程序员离开北上广的日子</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-16T14:22:05.000Z" itemprop="datePublished"> 发表于 2017-04-16</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="程序员离开北上广的日子"><a href="#程序员离开北上广的日子" class="headerlink" title="程序员离开北上广的日子"></a>程序员离开北上广的日子</h2><p><strong>在北京的那段日子是我最开心也是我最充实的时光，就在今年的2月份，我离开了北京，回到了贵州，然而此时的我和回来之前的想法完全不一样，回来之前对贵阳这地方抱着很大希望的，然而现在的我超想回北京，贵阳确实是一个发展中的城市，什么都不成熟，做软件这个行业还是北上广这个行业比较发达，说实话，我回来我已经后悔了，当踏上贵阳这片土地我就已经后悔了，确实不是我心目中的想法，</strong></p>
+<ol>
+<li>Changes to the Policy</li>
+</ol>
 
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+<p>We will update this Policy from time to time. If we make any material changes to this Policy, we will notify you by email or through in-game notifications.</p>
 
+<ol>
+<li>Contact Us</li>
+</ol>
 
-</div>
+<p>If you have any questions or suggestions about this Policy, please contact us at [email protected]</p>
 
+<ol>
+<li>Effective Date</li>
+</ol>
 
+<p>This Policy is effective as of July 24, 2024.</p>
 
 
-<div class="comments-count">
-	
-</div>
 
-</footer>
 
+</body>
 
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/04/06/Android7.0机型适配/" title="Android7.0机型适配" itemprop="url">Android7.0机型适配</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
-		
-  <p class="article-time">
-    <time datetime="2017-04-06T14:30:20.000Z" itemprop="datePublished"> 发表于 2017-04-06</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h3 id="Android7-0机型适配存储目录的共享"><a href="#Android7-0机型适配存储目录的共享" class="headerlink" title="Android7.0机型适配存储目录的共享"></a>Android7.0机型适配存储目录的共享</h3><p>都知道现在AI都很火，AI必定会诞生一些下一代巨头企业，各行各业都争抢这一股风，百度CEO不扔下了公司的内务不管，一头扎进了AI的研究团队工作中，前段时间李彦宏驾着自己公司生产的无人驾驶汽车，就是6，各个大巨头都在AI方面有重要项目在实施，都争抢着下一个时代的山头。在物联网方面，做的不错的是小米，小米的生态链，聚集了70多家智能硬件公司，形成了小米生态链，未来的小米将会在物联网将是一个大赢家，我们知道的小米路由器，小米手环，小米扫地机器人等都是这70多家公司中来生产和研发的，雷军太有远见了。好了，不闲说了，进入正题，记录一下我吗7.0版本对使用存储的要求。<img src="https://user-gold-cdn.xitu.io/2017/11/9/273e2014d8fa7673c6d438ebe50a592f?w=640&amp;h=426&amp;f=jpeg&amp;s=47213" alt=""><br><img src="https://user-gold-cdn.xitu.io/2017/11/9/ec8c02abbf21a89ed4daffd611b8e6d5?w=640&amp;h=457&amp;f=jpeg&amp;s=42366" alt=""></p>
-<pre><code>最近根据需求做了在线更新app问题，起初没有对7.0以上的机型进行
-适配，造成7.0手机无法跳转到app安装界面。
-   说一下吧，android系统发展越来越好用，用户体验越来越好，对
-用户的隐私也进行了一定规范性的保护，我们都知道从6.0系统的开始
-goole就开始对app使用手机权限进行了一定的约束，对于6.0以上 
-的权限申请我就不多说了，对于权限申请，自己写了一个框架，在项
-目中使用很方便。下面我们就说说7.0系统对存储使用增加
-了“FileProvider”,我们来看看使用方式，阅读一下官方文档。
-</code></pre><h5 id="FileProvider介绍"><a href="#FileProvider介绍" class="headerlink" title="FileProvider介绍"></a>FileProvider介绍</h5><p><a>FileProvider is a special subclass of ContentProvider that facilitates secure sharing of files associated with an app by creating a content:// Uri for a file instead of a file:/// Uri.<br>A content URI allows you to grant read and write access using temporary access permissions. When<br>you create an Intent containing a contentURI, in<br>order to send the content URI to a client app, you     can also call Intent.setFlags() to add permissions. These permissions are available to the client app for as long as the stack for a receiving Activity is active. For an Intent going to a Service, the permissions are available as long as the Service is running.</a></p>
-<p>In comparison, to control access to a file:/// Uri you have to modify the file system permissions of the underlying file. The permissions you provide become available to any app, and remain in effect until you change them. This level of access is fundamentally insecure.</p>
-<p>The increased level of file access security offered by a content URI makes FileProvider a key part of Android’s security infrastructure.</p>
-<p>This overview of FileProvider includes the following topics:<a></a></p>
-<p> 意思就是说<br> <a><br> FileProvider是一个特殊的ContentProvider子类，它通过为文件创建一个Content:/ / Uri而不是file:/ / Uri，从而促进与应用程序关联的文件的安全共享。</a></p>
-<p>内容URI允许您使用临时访问权限授予读和写访问。当您创建包含内容URI的意图时，为了将内容URI发送到客户机应用程序，您还可以调用intent. setflags()来添加权限。只要接收活动的堆栈是活动的，客户机应用程序就可以使用这些权限。为了获得服务，只要服务运行，权限就可用。</p>
-<p>相比之下，为了控制对文件的file:/ / / Uri，您必须修改底层文件的文件系统权限。您提供的权限对任何应用程序都可用，并且一直有效，直到您更改它们为止。这种级别的访问基本上是不安全的。</p>
-<p>由内容URI提供的文件访问安全性的提高使得FileProvider成为Android安全基础设施的关键部分。<br> <a></a></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>1.在程序清单文件中添加代码：</p>
-<pre><code>&lt;manifest&gt;
-...
-&lt;application&gt;
-   ...
-   &lt;provider  android:name= &quot;android.support.v4.content.FileProvid&quot;  
-        android:authorities=&quot;com.mydomain.fileprovider&quot;
-        android:exported=&quot;false&quot;
-        android:grantUriPermissions=&quot;true&quot;&gt;
-                   &lt;!--元数据--&gt;
-        &lt;meta-data
-            android:name=&quot;android.support.FILE_PROVIDER_PATHS&quot;
-            android:resource=&quot;@xml/file_path&quot; /&gt;
-    &lt;/provider&gt;
-    ...
-&lt;/application&gt;
-&lt;/manifest&gt;
-</code></pre><p> com.mydomain更换成自己项目的包名，唯一性。</p>
-<p>2.在res目录下新建一个xml文件夹，文件下新建一个xml文件“file_path”</p>
-<p>3.file_path文件写法</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;resources&gt;
-&lt;paths&gt;
-    &lt;root-path name=&quot;download&quot; path=&quot;&quot;/&gt;
-&lt;/paths&gt;
-&lt;/resources&gt;
-</code></pre><p> 根据我们使用的存储路径不同，对第三层的配置也不一样。</p>
-<pre><code>（1）当我们使用Context.getFilesDir()获取路径时我们应该配
-置成 &lt;files-path name=&quot;name&quot; path=&quot;path&quot; /&gt;
-（2）当我们使用getCacheDir()获取存储路径时，应该配置成
-&lt;cache-path name=&quot;name&quot; path=&quot;path&quot; /&gt;
-（3）使用Environment.getExternalStorageDirectory()
-获取目录时，&lt;root-path name=&quot;download&quot; path=&quot;&quot;/&gt;，path值可以为null，null代表授权这个目录下的所有文件，name必须写，不然会报严重异常
-（4）使用Context.getExternalCacheDir()
-&lt;external-cache-path name=&quot;name&quot; path=&quot;path&quot; /&gt;
-（5）使用Context.getExternalFilesDir(null)配置成
-&lt;external-files-path name=&quot;name&quot; path=&quot;path&quot; /&gt;
-</code></pre><p>另外，我们在跳转到安装目录代码有变如下：</p>
-<pre><code> public static void install(Context context,String target) {
-    File file = new File(target);
-    Intent intent = new Intent(Intent.ACTION_VIEW);
-    // 由于没有在Activity环境下启动Activity,设置下面的标签
-    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    if(Build.VERSION.SDK_INT&gt;=24) { //判读版本是否在7.0以上
-        //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
-        Uri apkUri =
-                FileProvider.getUriForFile(context, &quot;com.gzzhe.zhhwlkj.zigou.fileprovider&quot;, file);
-        //添加这一句表示对目标应用临时授权该Uri所代表的文件
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(apkUri, &quot;application/vnd.android.package-archive&quot;);
-    }else{
-        intent.setDataAndType(Uri.fromFile(file),
-                &quot;application/vnd.android.package-archive&quot;);
-    }
-    context.startActivity(intent);
-}
-</code></pre><p> 好了就介绍到这儿吧。</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/15/mqtt协议学习与使用/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-15T10:50:51.839Z" itemprop="datePublished"> 发表于 2017-03-15</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="mqtt协议学习与使用"><a href="#mqtt协议学习与使用" class="headerlink" title="mqtt协议学习与使用"></a>mqtt协议学习与使用</h2><h3 id="一-先简单介绍一下mqtt协议"><a href="#一-先简单介绍一下mqtt协议" class="headerlink" title="一.先简单介绍一下mqtt协议"></a>一.先简单介绍一下mqtt协议</h3><hr>
-<p>   mqtt协议是基于Tcp/ip 的一种通信协议，是建立在可靠的传输协议之上的，比起基于UDP协议就会想到mqtt协议的强大之处了吧。mqtt协议使用很广泛，如：经过对移动端应用的了解，像极光推送十有八九都是使用这个协议作为底层进行封装的。所以mqtt协议可以使用在各聊天中，但是我们没必要去重新造轮子，况且搭建一个推送协议不是一个小工程。mqtt不仅仅使用在推送协议中，现在的物联网这么发达，好多工程的实现都是使用mqtt协议作为通信协议，知道mqtt的强大之处了吧。</p>
-<h4 id="二-MQTT协议具有以下几个特点："><a href="#二-MQTT协议具有以下几个特点：" class="headerlink" title="二.MQTT协议具有以下几个特点："></a>二.MQTT协议具有以下几个特点：</h4><hr>
-<p>1.发布和订阅消息提供一对多的模式，具体就是：发布可以是一个终端，可以又多个终端订阅。也可以一个终端订阅多个发布终端。可以达到降低应用程序之间的耦合度。</p>
-<p>2.当消息内容又载体时，协议会进行屏蔽。</p>
-<p>3.使用TCP/IP提供网络连接。</p>
-<p>4.有三种消息发布质量，分别是：<br>（1）最多一次发布，以就是当消息发布完全是依赖于底层TCP/IP网络协议的，因为TCP/IP是可靠性传输的，当数据丢失了之后就会重传，所以这样的传输是可能会发生消息的重复。<br>（2）最少一次传输：这样的传输模式目的是能够确保消息能够到达，所以会出现多次传输，消息会出现重复。<br>（3）只有一次的发布：确保消息到达一次，这不能让消息重复，这种情况出现再计费系统中，不会出现重复的消息。这种模式不准消息丢失或者重复。</p>
-<p>5.小型传输，开销小，能够降低网络流量。</p>
-<p>6还有一特点就是使用Last will和Testament特性通知各客户端异常中断的机制。</p>
-<h3 id="三、MQTT协议的消息格式"><a href="#三、MQTT协议的消息格式" class="headerlink" title="三、MQTT协议的消息格式"></a>三、MQTT协议的消息格式</h3><hr>
-<p> 首先MQTT的消息格式中的头部占2个字节，第一个字节中的7、6、5、位是表示消息类型的，故可以表示16种消息类型，下面是对16种消息类型的解释；</p>
-<p>Reserved       0（转化成二进制是0000）      表示是保留位</p>
-<p>CONNECT     1（转化成二进制是0001 ）        表示请求连接服务器</p>
-<p>CONNACK     2 （转化成二进制是0010 ）       表示连接确认</p>
-<p>PUBLISH        3  （转化成二进制是0011 ）  表示发布消息</p>
-<p>PUBACK        4  （转化成二进制是0100 ） 表示发布确认</p>
-<p>PUBREC        5 （转化成二进制是0101 ）  表示发布了(保证交付第1部分)</p>
-<p>PUBREL          6（转化成二进制是0110 ）发布版本(保证交付第2部分)</p>
-<p>PUBCOMP       7 （转化成二进制是0111 ）发布完成(保证交付第3部分)</p>
-<p>SUBSCRIBE     8 （转化成二进制是1000 ）客户端订阅请求</p>
-<p>SUBACK           9  （转化成二进制是1001） 订阅确认</p>
-<p>UNSUBSCRIBE 10（转化成二进制是1010）客户端取消订阅请求</p>
-<p>UNSUBACK     11 （转化成二进制是1011）取消订阅确认</p>
-<p>PINGREQ       12  （转化成二进制是1100）  ping请求</p>
-<p>PINGRESP    13   （转化成二进制是1101）ping响应</p>
-<p>DISCONNECT 14（转化成二进制是1110）客户端断开</p>
-<p>Reserved 15 （转化成二进制是1111）保留位</p>
-<p>flag标记位是第3位：第三位用0或者1来表示，1表示收到的消息已收到过，0表示没有收到过。</p>
-<p>QoS level 占2位，那么表示四种类型：<br>0（00）表示最多一次模式<br>1（01）表示最少一次模式<br>2（10）表示确保一次模式<br>3（11）保留，不代表任何意思</p>
-<p>最后一位表示保留位<br>最后一个字节是表示剩余消息的长度是多少。<br>且记录长度不能超过4个字节，那么能够存储256MB的长度。<br>在使用MQTT协议时，最需要考虑的是安全性问题，因为MQTT协议是运行再Tcp上的，那么可以使用TLS来进行加密。</p>
-<h3 id="mqtt协议使用模式"><a href="#mqtt协议使用模式" class="headerlink" title="mqtt协议使用模式"></a>mqtt协议使用模式</h3><hr>
-<p>MQTT采用代理的发布/订阅模式实现了发布者和订阅者的解耦(decouple)，因此，在MQTT协议中有三种角色：代理服务器、发布者客户端以及订阅者客户端，其中发布者和订阅者互不干扰，也就是说发布者和订阅者互不知道对方的存在，它们只知道代理服务器，代理服务器负责将来自发布者的消息进行存储处理并将这些消息发送到正确的订阅者中去。这种解耦体现在以下3个方面上：<br>·空间解耦：发布者和订阅者不必知道对方的存在，例如对方的IP地址或者端口；<br>·时间解耦：发布者和订阅者不必同时建立连接；<br>·同步解耦：发布者和订阅者在发布消息或接收消息的时候不需要同步。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><hr>
-<p> 要想使用mqtt协议进行编程，我们得使用大公司封装好的协议进行编码，还得搭建代理服务器，使其各个客户端进行连接，能达到通信效果。</p>
-<hr>
-<h3 id="下一篇介绍怎么搭建mqtt代理服务器。"><a href="#下一篇介绍怎么搭建mqtt代理服务器。" class="headerlink" title="下一篇介绍怎么搭建mqtt代理服务器。"></a>下一篇介绍怎么搭建mqtt代理服务器。</h3>
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2016/12/30/释放2016展望2017/" title="" itemprop="url"></a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="小强" target="_blank" itemprop="author">小强</a>
-		
-  <p class="article-time">
-    <time datetime="2016-12-30T15:50:53.416Z" itemprop="datePublished"> 发表于 2016-12-30</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="2016年开发总结"><a href="#2016年开发总结" class="headerlink" title="2016年开发总结"></a>2016年开发总结</h2><h3 id="1-经历回顾"><a href="#1-经历回顾" class="headerlink" title="1.经历回顾"></a>1.经历回顾</h3><hr>
-<p>  2012年我踏上了去上大学的长征，所选择的专业是计科，没想到的是四年后的我走上了开发的征程。一个从农村走向城市的农村娃娃，对计算机的理解真的是很基础，认为计算机就是电脑，自从上了大学后才认识到计算机的魅力是无别的强大，以至于深深的吸引了我。从开设专业课C语言开始，我就迷上了程序，程序真是威力很大，计算机的速度是如此的惊人。使得我从一个无知的农村的孩子知道了冯诺依曼体系结构。从一个只知道结构型语言的到面向对象，从一个只知道算法到数据结构，到设计模式。然而今天我走上了程序猿的道路。万万没想到的是我走上了开发。起初对这个行业是很痴迷的我，今天也踏上了这个无底洞，碰见的问题越多感觉自己越是无知，计算机行业水很深，越往下探究越觉得很有意思。</p>
-<p>  当大学快要结束时，就大三期间，我踏上了来北京的道路，身上仅仅就一千来块钱，把房租一交，所剩无几，幸运的是不到一周的时间，我找到了实现单位，第一个月的艰苦生活让我有了更大的承受能力，从农村来的真的是承受能力强，能吃苦。就这样我我就踏上了开发的道路，说是入门真是不算。当和老大进行交流是，我才知道自己是多么的无知就连小菜鸟都不算。我实习的这家公司是一家金融行业。进去后真是让我大开眼界，当老大给我svn账号时，导出一个Android项目，看着这个项目时多么庞大。从来没有见到过这么庞大的项目。由此我有了好奇心。从2015年的7月份到2016年的六5份，我在我的实习公司学到了很多东西，我很感谢我的老大教了我那么多。也感谢公司给我的机会，给予我的平台让我学到了不少东西。</p>
-<p>  2016年，我毕业了，从学校里走出来，才知道在学校的时光是多么安逸，想念大学的饭菜，想念大学一帮哥们，想念大学里的老乡。时光匆匆，大学时光是如此之快。如今我再也不是学生，从此从小社会踏上了大社会，肩上的担子一下变得更加承重，踏入社会从不成熟变成了成熟。毕业后，我再次踏上了开往北京的列车。这次再返北京，我踏上了智能家居这条路，进入了一家创业公司，老板人很好，公司气氛也很不错，再加上自己对智能硬件，嵌入式开发非常感兴趣。进入这家公司后我的技术又提升了不少，因为项目是从一开始搭建，到各个业务模块的实现我都参与了核心模块，对我的锻炼真的很有效果<br>  。尤其是对物联网网络协议的研究，证实了我的学习能力还是很不错的。而今走上了程序开发的道路，使我对程序的兴趣越来越有感觉。越来越有好奇心，我相信2017年的我将会更上一层楼。</p>
-<h3 id="2-Android-旅途"><a href="#2-Android-旅途" class="headerlink" title="2.Android 旅途"></a>2.Android 旅途</h3><hr>
-<p> 2015年移动互联网寒冬尤为激烈，北京大部分小企业经不住寒冬的摧残，慢慢的都从北京这个喧闹的城市销声匿迹，而我走上的Android开发道路不会应此而终止。从2015年还在使用eclipse家ADT插件对Android项目进行开发到2016年公司项目全部转向AS开发，之间所经历的坑和自己挖的坑是填了又挖，挖了又填。如今AS开发也步入正轨。今年的12月份Goole正式反攻中国，对于我们Android开发真是很好的喜讯，如今看文档不用在翻墙，但是搜索引擎还是老大哥的厉害，使用惯了Goole，对百度真心很失望。Android studio 开发工具的强大 Gradle强大真是没法比，比起eclipse我已经离不开了AS。</p>
-<h3 id="3-技术之道如今"><a href="#3-技术之道如今" class="headerlink" title="3.技术之道如今"></a>3.技术之道如今</h3><hr>
-<p>  1.“兴趣是学习最好的老师”。这句话永远不回过时，没有了兴趣这条道是没法在走下去的。</p>
-<p>  2.技术的延伸是靠不断的发现问题，不断的解决问题，不断的挖坑不断的填坑，填的坑越多，经验自然就有了。</p>
-<p>  3.在开发的路上，每一次出现的问题，我都会去寻找问题的根源，刨根知底，对套路越来越清晰才有利于工作效率的提升。当我每解决一个问题后，记笔记是对知识最好的整理，从进入第二家公司，我养成了记笔记的习惯。不管问题大小，我都会以笔记的形式记录下来，现在我的为知笔记已经有六十多篇解决问题的方案和bug出现的缘由。这是一笔不小的财富。<br>  4.在遇到问题的路上，我首先是去定位bug，查看源码，对源码进一步的分析，有所不了解的才去问Goole，首先遇到问题就应该自己尝试去处理，对问题熟悉，当自己无法解决时才去请求别人的帮助。习惯才是王道。</p>
-<h3 id="4-展望2017"><a href="#4-展望2017" class="headerlink" title="4.展望2017"></a>4.展望2017</h3><hr>
-<p>  新的一年对自己的一些规划：</p>
-<p>  1.工作之余的我也没闲着，一直规划着自己想上线的小项目，新的一年里把项目完成，并发布到应用商店。</p>
-<p>  2.在Android领域，进程间通信的必要性是不可磨灭的，这是大项目中必须熟知的，所以，2017年的我必须对这个模块进行熟悉和使用。</p>
-<p>  3.2017年必须半个月更新博客，把笔记整理成文章进行记录。</p>
-<p>  4.对Android底层进行进一步的学习。</p>
-<hr>
-<p>  <strong>好了故事就到这儿，希望2017年的我是不一样的我，是一个幸运的小伙。生命不息，奋斗不止。</strong></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="sudeqiangxx" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
-
-  
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
-    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5841996534&verifier=b3593ceb&dpc=1"></iframe>
-</div>
-
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<section class="info">
-		<p> 码神之道，逢敌必亮剑。 <br/>
-			码出一个家，码出一个世界。</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/5841996534" target="_blank" class="icon-weibo" title="微博"></a>
-		
-		
-		<a href="https://github.com/sudeqiangxx" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		
-		<a href="http://www.zhihu.com/people/su-de-qiang-41" target="_blank" class="icon-zhihu" title="知乎"></a>
-		
-		
-		
-		<a href="mailto:1320909689@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-			
-		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
-		
-		<a href="/about" target="_blank" title="小强">小强</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
- </html>
+</html>
